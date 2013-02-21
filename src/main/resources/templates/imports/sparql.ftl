@@ -27,16 +27,18 @@
 
 <form id="sparql">
 <textarea class="query" rows="11" name="query">
-PREFIX fise: &lt;http://fise.iks-project.eu/ontology/&gt;
-PREFIX dc:   &lt;http://purl.org/dc/terms/&gt;
-SELECT distinct ?enhancement ?content ?engine ?extraction_time
-WHERE {
-  ?enhancement a fise:Enhancement .
-  ?enhancement fise:extracted-from ?content .
-  ?enhancement dc:creator ?engine .
-  ?enhancement dc:created ?extraction_time .
+PREFIX pmo: <http://www.patexpert.org/ontologies/pmo.owl#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX property: <http://example.org/property/>
+PREFIX sumo: <http://www.owl-ontologies.com/sumo.owl#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+SELECT distinct ?title ?inventor_name
+WHERE { 
+	?invention a sumo:Patent . 
+	?invention dcterms:title ?title . 
+	?invention pmo:inventor ?inventor .
+	?inventor foaf:name ?inventor_name .
 }
-ORDER BY DESC(?extraction_time) LIMIT 5
 </textarea>
 <p><input type="submit" class="submit" value="Run SPARQL query" /></p>
 <pre class="prettyprint result" style="max-height: 200px; display: none" disabled="disabled">
