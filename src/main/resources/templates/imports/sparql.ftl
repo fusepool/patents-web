@@ -31,7 +31,7 @@ PREFIX pmo: &lt;http://www.patexpert.org/ontologies/pmo.owl#&gt;
 PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
 PREFIX property: &lt;http://example.org/property/&gt;
 PREFIX sumo: &lt;http://www.owl-ontologies.com/sumo.owl#&gt;
-PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt; 
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 SELECT distinct ?title ?inventor_name
 WHERE { 
 	?invention a sumo:Patent . 
