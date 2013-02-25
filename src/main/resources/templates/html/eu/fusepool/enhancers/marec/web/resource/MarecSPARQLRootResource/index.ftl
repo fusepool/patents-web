@@ -1,6 +1,6 @@
 <#import "/imports/common.ftl" as common>
 <#import "/imports/marec-sparql-description.ftl" as description>
-<#import "/imports/sparql.ftl" as sparql>
+<#import "/imports/marec-sparql.ftl" as msparql>
 <#escape x as x?html>
 <@common.page title="MAREC SPARQL Endpoint" hasrestapi=false>
 
@@ -20,7 +20,7 @@
     For details please see Javadocs of <a href="http://svn.apache.org/repos/asf/incubator/stanbol/trunk/commons/web/sparql/src/main/java/org/apache/stanbol/commons/web/sparql/resource/SparqlEndpointResource.java">SparqlEndpointResource</a>.
   </p>
 
-  <@sparql.form/>
+  <@msparql.form/>
 
 </@common.page>
 

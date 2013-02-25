@@ -83,12 +83,24 @@ public class MarecSPARQLWebFragment implements WebFragment {
 
     @Override
     public List<LinkResource> getLinkResources() {
-        return Collections.emptyList();
+		List<LinkResource> resources = new ArrayList<LinkResource>();
+		resources.add(new LinkResource("stylesheet", "css/marec.css",
+				this, 0));
+		return resources;
     }
 
     @Override
     public List<ScriptResource> getScriptResources() {
-        return Collections.emptyList();
+		List<ScriptResource> resources = new ArrayList<ScriptResource>();
+		/*
+		resources.add(new ScriptResource("text/javascript",
+				"js/jquery-1.7.1.js", this, 0));
+		
+		resources.add(new ScriptResource("text/javascript", "js/xmlfiltering.js",
+				this, 1));
+		return resources;
+		*/
+		return Collections.emptyList();
     }
 
     @Override
