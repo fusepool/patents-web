@@ -113,7 +113,7 @@ function init() {
       type: "POST",
       //url: "http://vmyuki.bfh.ch:8080/sparql",
       url: "${it.publicBaseUri}sparql",
-      data: {graphuri: "om.go5th.yard.clerezza.01", query: SparqlQuery},
+      data: {graphuri: "urn:fusepool-graph1", query: SparqlQuery},
       //dataType: "html",
       cache: false,
       success: loadTable,
