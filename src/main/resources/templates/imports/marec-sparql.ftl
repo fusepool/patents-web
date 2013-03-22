@@ -42,6 +42,7 @@ function loadTable(data){
 	$($results).find("result").each(function(){ //find each row in the XML with the country we want to show.		
 		var $result=$(this);							//cache result selector 
 
+		var $ecla
 		var $title ;
 		var $inventor ;
 		var $country ;
@@ -56,12 +57,15 @@ function loadTable(data){
 				$title = value ;
 				$country = $(literal).attr("xml:lang") ;
 			}
-			if("inventor_name"==name) 
+			if("inventor_name"==name) { 
 				$inventor = value ;
-	
+			}
+			if("ecla"==name) {
+				$ecla = value ;
+			}
 		}) ;
 					
-		$("#datatable").append("<tr class='datarow'><td>"+$country+"</td><td>"+$inventor+"</td><td>"+$title+"</td></tr>"); //output table row
+		$("#datatable").append("<tr class='datarow'><td>"+$title+"</td><td>"+$ecla+"</td><td>"+$inventor+"</td></tr>"); //output table row
 	});	
 	zebraStripe();
 }
