@@ -6,7 +6,7 @@ var SparqlQuery = "PREFIX pmo: <http://www.patexpert.org/ontologies/pmo.owl#>\n"
 				  "PREFIX dcterms: <http://purl.org/dc/terms/>\n"+
 				  "PREFIX sumo: <http://www.owl-ontologies.com/sumo.owl#>\n"+
 				  "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n"+
-				  "SELECT ?title ?ecla ?inventor\n"+ 
+				  "SELECT DISTINCT ?title ?ecla ?inventor\n"+ 
 				  "WHERE {\n"+ 
 				  "?invention a sumo:Patent .\n"+ 
 				  "?invention dcterms:title ?title .\n"+ 
@@ -57,7 +57,7 @@ function loadTable(data){
 				$title = value ;
 				$country = $(literal).attr("xml:lang") ;
 			}
-			if("inventor_name"==name) { 
+			if("inventor"==name) { 
 				$inventor = value ;
 			}
 			if("ecla"==name) {
@@ -94,9 +94,9 @@ function zebraStripe(){
 </form>
 <table id='datatable' width="100%" cellpadding="7" cellspacing="1">
   <tr id='tableheader'>
-    <th>Country</th>
-    <th>Inventor Name</th>
     <th>Title</th>
+    <th>Inventor Name</th>
+    <th>Classification</th>
   </tr>
 </table>
 
