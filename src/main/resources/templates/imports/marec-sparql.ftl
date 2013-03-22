@@ -2,7 +2,23 @@
 
 
 <script language="javascript">
-var SparqlQuery =
+var SparqlQuery = "PREFIX pmo: <http://www.patexpert.org/ontologies/pmo.owl#>\n"+
+				  "PREFIX dcterms: <http://purl.org/dc/terms/>\n"+
+				  "PREFIX sumo: <http://www.owl-ontologies.com/sumo.owl#>\n"+
+				  "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n"+
+				  "SELECT ?title ?ecla ?inventor\n"+ 
+				  "WHERE {\n"+ 
+				  "?invention a sumo:Patent .\n"+ 
+				  "?invention dcterms:title ?title .\n"+ 
+				  "?invention pmo:classifiedAs ?ecla .\n"+
+				  "?invention pmo:inventor ?inventor_uri .\n"+
+				  "?inventor_uri foaf:name ?inventor .\n"+
+				  "FILTER ( lang(?title) = \"de\" )\n"+
+				  "}\n"+
+				  "LIMIT 5" ;
+
+
+/*
 	"PREFIX pmo: <http://www.patexpert.org/ontologies/pmo.owl#>\n"+
 	"PREFIX dcterms: <http://purl.org/dc/terms/>\n"+
 	"PREFIX property: <http://example.org/property/>\n"+
@@ -15,7 +31,7 @@ var SparqlQuery =
 	"?invention pmo:inventor ?inventor .\n"+
 	"?inventor foaf:name ?inventor_name .\n"+
 	"}" ;
-
+*/
 var $country="";	//globals as we have callbacks that need this data.
 var $xmldata="";	
 
