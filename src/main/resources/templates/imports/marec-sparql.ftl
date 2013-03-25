@@ -52,6 +52,7 @@ function loadTable(data){
 			$binding = $(this) ;
 			var name = $binding.attr("name") ;
 			var literal = $($binding).find("literal") ;
+			var uri = $($binding).find("uri") ;
 			var value = $(literal).text() ;
 			if("title"==name) {
 				$title = value ;
@@ -61,7 +62,7 @@ function loadTable(data){
 				$inventor = value ;
 			}
 			if("ecla"==name) {
-				$ecla = value ;
+				$ecla = $(uri).text()  ;
 			}
 		}) ;
 					
@@ -95,8 +96,8 @@ function zebraStripe(){
 <table id='datatable' width="100%" cellpadding="7" cellspacing="1">
   <tr id='tableheader'>
     <th>Title</th>
+     <th>Classification</th>
     <th>Inventor Name</th>
-    <th>Classification</th>
   </tr>
 </table>
 
